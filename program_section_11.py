@@ -43,6 +43,46 @@
 #     f.write("Sanil!\n")#here we write to the file
 
 #this will append the first 90 characters of fruits.txt to first.txt 
-with open("ejemplo/fruits.txt") as f:
-    with open("first.txt", "a") as f1: #here "a" means append mode so it will not overwrite the file
-        f1.write(f.read(90))
+# with open("ejemplo/fruits.txt") as f:
+#     with open("first.txt", "a") as f1: #here "a" means append mode so it will not overwrite the file
+#         f1.write("\nOkokok")
+#         f1.write(f.read(90) +  "Mango\n")
+
+with open("ejemplo/fruits.txt", "a+") as f:
+     f.write("Okra")
+     f.seek(0)#here we move the cursor to the beginning of the file
+     content = f.read()
+print(content)
+
+# with open("bear1.txt") as myfile:
+#     with open("bear2.txt", "a") as f1: #here "a" means append mode so it will not overwrite the file
+#           f1.write(myfile.read())
+
+with open("ejemplo/data.txt") as f:
+    content = f.read() #this line reads the content of the file
+    for i in range(2):#then we loop twice
+        with open("ejemplo/data.txt", "a") as f1:#so we open the file in append mode
+         f1.write(content)#finally we write the content of the file again
+
+
+
+# In this section, you learned that:
+
+# You can read an existing file with Python:
+
+# with open("file.txt") as file:
+#     content = file.read()
+# You can create a new file with Python and write some text on it:
+
+# with open("file.txt", "w") as file:
+#     content = file.write("Sample text")
+# You can append text to an existing file without overwriting it:
+
+# with open("file.txt", "a") as file:
+#     content = file.write("More sample text")
+# You can both append and read a file with:
+
+# with open("file.txt", "a+") as file:
+#     content = file.write("Even more sample text")
+#     file.seek(0)
+#     content = file.read()
